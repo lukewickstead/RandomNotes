@@ -1,0 +1,86 @@
+
+
+
+```
+﻿using System.Web.Routing;
+
+namespace CTS.Web.Apps.UKeIPOClient.Tests.Routes.Core
+{
+    internal class RegisteredRoutesProvider : IRegisteredRoutesProvider
+    {
+        public RouteCollection GetAndRegisterRoutes()
+        {
+            var routes = new RouteCollection();
+
+            RouteConfig.RegisterRoutes(routes);
+
+            return routes;
+        }
+    }
+}
+```
+
+
+```
+﻿using Moq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace CTS.Web.Apps.UKeIPOClient.Tests.Routes.Core
+{
+    /// <summary>
+    /// Creates a mocked HttpContextBase via Moq
+    /// </summary>
+    internal class MockedHttpContextBaseProvider : IMockedHttpContextBaseProvider
+    {
+        /// <summary>
+        /// Creates a mocked HttpContextBase to allow testing of URL routing matching
+        /// </summary>
+        /// <param name="url">The url relative to the webroute and starting with a ~</param>
+        /// <param name="httpVerb">The http method</param>
+        /// <returns>A mocked HttpContextBase</returns>
+        public HttpContextBase CreateHttpContextBase(string url, HttpVerbs httpVerb)
+        {
+            var mockContext = new Mock<HttpContextBase>();
+
+            mockContext.Setup(m => m.Request).Returns(
+                CreateMockedHttpRequestBase(url, httpVerb));
+
+            mockContext.Setup(m => m.Response).Returns(
+                CreateMockedHttpResponseBase());
+
+            return mockContext.Object;
+        }
+
+        /// <summary>
+        /// Creates a mocked HttpRequestBase
+        /// </summary>
+        /// <param name="url">The url relative to the webroute and starting with a ~</param>
+        /// <param name="httpVerb">The http method</param>
+        /// <returns>A mocked HttpRequestBase via Moq</returns>
+        private static HttpRequestBase CreateMockedHttpRequestBase(string url, HttpVerbs httpVerb)
+        {
+            var mockRequest = new Mock<HttpRequestBase>();
+
+            mockRequest.Setup(m => m.AppRelativeCurrentExecutionFilePath).Returns(url);
+            mockRequest.Setup(m => m.HttpMethod).Returns(httpVerb.ToString().ToUpperInvariant());
+
+            return mockRequest.Object;
+        }
+
+        /// <summary>
+        /// Creates a mocked HttpResponseBase
+        /// </summary>
+        /// <returns>A mocked HttpResponseBase via Moq</returns>
+        private static HttpResponseBase CreateMockedHttpResponseBase()
+        {
+            var mockResponse = new Mock<HttpResponseBase>();
+
+            mockResponse.Setup(m => m.ApplyAppPathModifier(It.IsAny<string>())).Returns<string>(s => s);
+
+            return mockResponse.Object;
+        }
+    }
+}
+```
+

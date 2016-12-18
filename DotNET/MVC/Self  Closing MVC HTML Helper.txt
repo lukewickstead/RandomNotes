@@ -1,0 +1,68 @@
+
+The following is an example of how to write a self closing MVC Html helper similar to BeginForm(). It takes the form of a self closing DIV tag; in fact we will write a Bootstrap panel.
+
+We will be profiting from the IDisposable and the Dispose method which will write our closing div tag
+
+First we create a class which will be passed an Action which will write our end tag; this class implements IDisposable and calls out required action.
+
+```
+﻿using System;
+
+namespace WebApps.HtmlHelpers
+{
+    internal class DisposableHtmlHelper : IDisposable
+    {
+        private readonly Action _end;
+
+        public DisposableHtmlHelper(Action end)
+        {
+            _end = end;
+        }
+
+        public void Dispose()
+        {
+            _end();
+        }
+    }
+}
+```
+
+Now we write our help methods; a BeingPanel method which writes a div tag to the ViewContect response stream. It returns an instance of our newly created DisposableHtmlHelper as defined above. We register with it our method which will write out closing tag.
+
+```
+﻿using System;
+using System.Web.Mvc;
+
+namespace WebApps.HtmlHelpers
+{
+    public static class HtmlHelpers
+    {
+        public static IDisposable BeginPanel(this HtmlHelper htmlHelper)
+        {
+            htmlHelper.ViewContext.Writer.Write(@"<div class=""panel panel-default"">");
+
+            return new DisposableHtmlHelper(
+               htmlHelper.EndPanel
+           );
+        }
+
+        public static void EndDiv(this HtmlHelper htmlHelper)
+        {
+            htmlHelper.ViewContext.Writer.Write("</div>");
+        }
+
+        public static void EndPanel(this HtmlHelper htmlHelper)
+        {
+            htmlHelper.EndDiv();
+        }
+    }
+}
+```
+
+We can now call this within a using statement in our view.
+```
+@using (Html.BeginPanel()) {
+
+}
+
+```
