@@ -6,7 +6,7 @@
 Install-Package Moq -version 4.1.1309.1617 -projectname EssentialTools.Tests
 ```
 
-##Creating a Mock Object##
+## Creating a Mock Object ##
 
 ```
 var mock = new Mock<IDiscountHelper>(); ```
@@ -17,7 +17,8 @@ var mock = new Mock<IDiscountHelper>(); ```
 mock.Setup (m => m.ApplyDiscount(It.IsAny<decimal>())).Returns<decimal>(total => total); 
 ```
 
-##It Class##
+## It Class ##
+
 |Method |Description |
 |--|--|
 |Is<T>(predicate)| Specifies values of type T for which the predicate will return true. |
@@ -25,7 +26,7 @@ mock.Setup (m => m.ApplyDiscount(It.IsAny<decimal>())).Returns<decimal>(total =>
 |IsInRange<T>(min, max, kind) |Matches if the parameter is between the defined values and of type T. The final parameter is a value from the Range enumeration and can be either Inclusive or Exclusive.| 
 |IsRegex(expr)|Matches a string parameter if it matches the specified regular expression.|
 
-##Mocking For Specific Values (and Throwing an Exception)##
+## Mocking For Specific Values (and Throwing an Exception) ##
 
 ```
 mock.Setup(m => m.ApplyDiscount(It.Is<decimal>(v => v == 0)))
@@ -37,7 +38,7 @@ mock.Setup(m => m.ApplyDiscount(It.Is<decimal>(v => v > 100)))
      .Returns<decimal>(total => (total * 0.9M)); 
 ```
 
-##Mocking For a Range of Values##
+## Mocking For a Range of Values ##
 
 ```
 mock.Setup(m => m.ApplyDiscount(
@@ -51,6 +52,6 @@ mock.Setup(m => m.ApplyDiscount(
         .Returns<decimal>(total => total - 5);
 ```
 
-##QuickStart##
+## QuickStart ##
 
 http://code.google.com/p/moq/wiki/QuickStart

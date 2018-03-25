@@ -1,7 +1,7 @@
 #Pro jQuery 2.0 (Expert's Voice in Web Development) by Adam Freeman#
 
 
-#Backgroun#
+# Background #
 
 www.asp.net/ajaxlibrary/cdn.ashx and about the Google service at http://code.google.com/apis/libraries/devguide.html.
 
