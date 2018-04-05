@@ -1,3 +1,4 @@
+# Angular Notes #
 
 ## Interpolation ##
 
@@ -22,11 +23,9 @@
 
 ## Event Binding ##
 
-
 ```angular
 <button (click) ='toggleImage()'>
 ```
-
 
 ## Two Way Binding ##
 ```angular
@@ -41,14 +40,11 @@
 {{ product.price | currency |lowerCase}}
 ```
 
-
 ## Nested Components ##
 
 You can bind to a nested component by use of the @Input() attribute on the component property. You can then bind in the markup of the outer html using property binding.
 
-You can use @Output() decorator to bind outwards using an event emiter the outer element can respond to the notify event and bind it to a method to call....
-
-
+You can use @Output() decorator to bind outwards using an event emitter the outer element can respond to the notify event and bind it to a method to call....
 
 ## Dependency Injection ##
 
@@ -65,9 +61,7 @@ Injection is done in the constructor. Adding in an acceissble of the variable me
 Don't do any expensive things in the construcotr; favor the ngOnInit life cycle hook
 
 
-
 ## Retrieving Data Using HTTP ##
-
 
 Observables help us manages back end data. They are an array of elements determined asynchronously. Proposed EMCA 2016 but we use RxJS library in the mean time.
 
@@ -81,15 +75,17 @@ Our service will call an Observable<IFoo[]> from our http request.
 
 On http get we cal call do as a call back to log to the console etc and the catch to handle errors. Both need to be importws from the rxjs library
 
-
 We can subscribe to the returned observable array which takes parameters for call back, errors and completion (optional). the returned object can be used to cancel the request if requierd.
-
 
 ## Navigation and Routing ##
 
 One page, multiple views. The displayed views is determined by the routing.
 
-<a routerLink="/products">Products</a> can be used to activate a route and display the associated display. It is bound and is surrounded by []
+```
+<a routerLink="/products">Products</a> 
+```
+
+Can be used to activate a route and display the associated display. It is bound and is surrounded by []
 
 The routerOutlet element type defines where it is displayed.
 
@@ -103,16 +99,22 @@ Each route contains a path, and a componenents.
 
 More specific routes first.
 
-
 Parameters can be defined out the route  foo/:id, the parameter is then passed in on the router link
 
-<a [routerLink]="['/products', product.productId]"
+
+```
+<a [routerLink]="['/products', product.productId] >
+```
+
 
 To get the parameter within the compoenent use the ActivatedRoute module.
 
 
-// do this within the ngOnInit method and not the constructor.
+Do this within the ngOnInit method and not the constructor.
+
+```
 +this._route.snapshot.paramMap.get('id');
+```
 
 The + is a js shortcut to convert the id from string into an int.
 
@@ -125,8 +127,6 @@ this._router.navigate(['/products'])
 the method containing this would then be bound to the click event
 
 (click)='onBack()'
-
-
 
 You can protect routes via guards for authoisation/ensuring saving before changing.
 
@@ -267,37 +267,37 @@ but we need to bind the model
 We can display/hide out validation div
 
 ```
-<div *ngIf="firstName.invalid && firstName.dirty/touched"
+<div *ngIf="firstName.invalid && firstName.dirty/touched"</div>
 ```
 
 We can conditionally add a class onto  a div/form-group
 
 ```
-<div [class.has-error]="firstName.invalid && firstName.dirty/touched"
+<div [class.has-error]="firstName.invalid && firstName.dirty/touched"> </div>
 
 ```
 For more exomplex we can bind to a compoennt function
 
 ```
-<div [class.has-error]="hasFieldSetCorrectly"
+<div [class.has-error]="hasFieldSetCorrectly"></div>
 
 ```
 
-We can trigger setting this via a blue trigger envent when changing
-
-```
-<select.....
-(blur)="validateFieldSetCorrecrly()"
-```
+We can trigger setting this via a blur trigger event when changing
 
 
 ```
-validateFieldSetCorrecrly(event) [
-]
+<select
+(blur)="validateFieldSetCorrecrly()"></select>
+```
+
+
+```
+validateFieldSetCorrecrly(event) []
 
 ```
 
-Better to pass in value using a template reference and binding with the vlaue; example said about update of the model might not have happend before calling the fucjtion. example had in the compoenent function this.model.primaryanguage.
+Better to pass in value using a template reference and binding with the value; example said about update of the model might not have happened before calling the function. example had in the component function this.model.primaryanguage.
 
 ```
 (blur)="validateFieldSetCorrecrly(primaryLanguage.value)"
@@ -305,9 +305,10 @@ Better to pass in value using a template reference and binding with the vlaue; e
 ```
 
 
-## Validatiobs##
+## Validations##
 
 Supports html5 validation attributes but use caniuse to ensure all browsers support them,
+
 ```
 <input required
 minlength="2" // not fully supported 
@@ -316,41 +317,36 @@ pattern="^Q.*"
 pattern="...+"
 ```
 
-
 ## Options ##
 
+```
 <option default> Please fooo </option>
-
-
+```
 
 ## Form Validaiton##
 
 ```
-<form #form="ngForm" novalidate> 
-
-<button [disabled]="form.invalid"
-
+<form #form="ngForm" novalidate/> 
+<button [disabled]="form.invalid"/>
 
 {{ form.pristine }}
 {{ form.valid }}
 
 ```
 
-
 ## HTTP Form Post ##
 
 See FormPosterService (second course)
 
-ON form bind to the submit event
+O form bind to the submit event
 
 ```
-<form #form="ngForm" (submit)="submitForm()" novalidate ...
+<form #form="ngForm" (submit)="submitForm()" novalidate>
+</form>
 ```
-
 
 ```
 submitFor(form: NgForm) {
-
 }
 
 ```
@@ -361,19 +357,13 @@ ng2-bootstrap
 
 make sure you use [] arround attributr to bind. also when passing a string pass in "'year'" as otherwise it will look for a year property on the componenent.
 
-
-
-
 ## Reactive Forms ##
 
 ### Template Driven vs. Reactive ###
 
-
-
 Value Chnaged pristine/dirty
 Validaity; valid/invalid
 Visited; touched/untouched
-
 
 Use different form directives
 
@@ -381,28 +371,20 @@ ngForm, ngModel and ngModelGroup are replaced with
 
 formGroup, formControl, formControlName, formGroupName, formArrayName
 
-
 #Best Practices#
 
-Names contain their type.
-foo.componenent.ts
-foo.componenent.css
-foo.componenent.html
+Names contain their type:
 
-The actual component class will be upper camal case FooComponent
+- foo.componenent.ts
+- foo.componenent.css
+- foo.componenent.html
 
-Directry should be by features
+The actual component class will be upper camel case FooComponent
+
+Directory should be by features
 
 app/Foo/foo*.*
 
 One item per file.
 
-For imutability you can use object.assign to create a new object from another with changes.
-
-
-
-- Thursday; Basic working two step form with validation and 'posting'
-- Friday; E2E Testing, best practices & CLI 
-
-
-
+For immutability you can use object.assign to create a new object from another with changes.

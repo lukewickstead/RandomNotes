@@ -20,7 +20,7 @@ Notes taken from Kyle Simpson's Advanced Javascript course.
 
 > Scope; where to look for things
 
-JavaSCript is actually compiled; it is not interpreted. When running line x it has already knowledge of following lines of code.
+JavaScript is actually compiled; it is not interpreted. When running line x it has already knowledge of following lines of code.
 
 The compiler looks for blocks of scope.
 
@@ -51,12 +51,11 @@ function baz(foo) {
 };
 ```
 
-
-When compiling baz there is a named parameter foo which is declared implicitly within the scope of baz.
+When compiling baz there is a named parameter foo which is declared implicitly within the scope  of baz.
 
 When executing there is not var interpretation; it does not exist.
 
-LHS vs RHS (Left/ Right) of an asignment or = (equals operator)
+LHS vs RHS (Left/ Right) of an assignment or = (equals operator)
 var foo = "bar";
 
 foo is a LHS reference
@@ -69,7 +68,6 @@ LHS and RHS work differently when taking into account scope.
 When LHS references a variable we need to know where it exists to the scope manager. It returns a references to that variable if it knows what it is or can work it out.
 
 01 - Global scope asked for foo and it knows about it.
-
 
 When executing bar we ask bar scope manager for bar we have a LHS reference to foo. It does know about it as it was declared. It is local scope as it was declared with a var.
 
@@ -87,31 +85,26 @@ Undefined means it was declared but has not been assigned a value from it's init
 
 If we had var foo inside baz; it woul declare variable foo by its named parameter and then its declation for a variable, it would say it knows about it as it was declared implicitly.
 
+
 ## Function declarations vs, functions expression ##
 
 If the function keyword is the very first in a statement it is an expression. An anonymoust function expression has no name.
 
 ```JavaScript
 (function () {
-    // anonynous function expression
-    
+    // anonynous function expression 
 })()
 
 
 // Function expressions
-function bar() {
-    
-    
+function bar() { 
 }
 
 
 // Function declarations
 var foo = function moo() {
-    
 }
-
 ```
-
 
 There are three negatives for using expressions which are anonymous
 - Can not call them
@@ -159,7 +152,7 @@ function foo(str) {
 foo("var bar = 42;")''
 ```
 
-The compiler cannot optimize the lookup when it sees Eval as it cannot work them out until run time.
+The compiler cannot optimise the lookup when it sees Eval as it cannot work them out until run time.
 
 In strict mode, an eval creates a new scope for the evaluated code in a string to optimize it. 
 Never use Eval!?!?! The settimeout with a string syntax is the same...... TODO: find out. SetTimeOut with a reference is fine.......
@@ -182,15 +175,13 @@ with(obj) {
     d = 3; // ?? This does not create a new property on obj, it goes up the scope until global and creates a global reference.
 }
 
-obj.d; // undefine;
+obj.d; // undefined;
 d; // 3 oops!!
 ```
 
-In strict mode the with keyword is completly removed.
-
+In strict mode the with keyword is completely removed.
 
 Dynamic scope means run time 
-
 
 ###IIFE###
 
@@ -547,7 +538,7 @@ console.log(foo.obj.bar);   // "bar"
 ```
 
 
-## Classic Module PAttern
+## Classic Module Pattern
 
 - There must be an outer wrapping function being executed
 - There must be one ore more functions which are returned
@@ -626,11 +617,9 @@ module foo from "foo";
 foo.bar();
 ```
 
-
 # ProtoType #
 
 Every single object is build by a constructor function.
-
 
 A constructor makes an object linked to its own prototype
 
