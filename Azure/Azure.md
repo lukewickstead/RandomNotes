@@ -283,8 +283,3 @@ Collection -> Query Explorder to query the db with the query language which is s
 
 
 Collections -> Script Explorer -> Create Stored Prociedre, triggers and user defined funcitons. Same as SQL Server but use JavaScript.
-
-
-
-# Cloud Storage
-
