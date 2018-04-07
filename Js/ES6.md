@@ -796,3 +796,148 @@ async function main() {
 
 main();
 ```
+
+# Reflect & Proxy
+
+## Reflect
+
+The Reflect API provides a common interface for  reflection.
+
+> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+### Object Construction
+
+```JavaScript
+class Foo {
+    
+}
+
+let f = Reflect.Construct(Foo);
+console.log(f instanceof Foo);
+```
+
+### Method Calls
+
+We can call a method on any object
+
+```JavaScript
+class Foo {
+    constructor() {
+        this.id = 1;
+    }
+    show() {
+        console.log(this.id);
+    }
+}
+
+Reflect.apply(Foo.prototype.show, {id: 2}); // output: 2
+```
+
+## Get & Set ProtoType
+
+The static Reflect.getPrototypeOf() method is the same method as Object.getPrototypeOf().
+The static Reflect.setPrototypeOf() method is the same method as Object.setPrototypeOf()
+
+```JavaScript
+let moo {    
+}
+class Foo {
+    constructor() {
+        this.id = 1;
+    }
+    show() {
+        console.log(this.id);
+    }
+}
+
+let f = new Foo();
+
+console.log(Reflect.getPrototypeOf(f)); // output: Foo
+Reflect.setPrototypeOf(moo, Foo));
+console.log(Reflect.getPrototypeOf(moo)); // output: Foo
+```
+
+## Properties
+
+- Reflect.get()
+- Reflect.set()
+- Reflect.has()
+- Reflect.ownKeys()
+- Reflect.defineProperty()
+- Reflect.deleteProperty()
+- Reflect.getOwnPropertyDescriptor()
+
+## Property Extensoins
+
+- Reflect.preventExtensions()
+- Reflect.isExtensible()
+
+## Proxy
+
+Proxy provides an interface similar to Reflect but allows interception or trap of any method or property call.
+
+### Available Traps
+
+- handler.apply() handler.defineProperty()
+- handler.deleteProperty()
+- handler.getOwnPropertyDescriptor()
+- handler.getPrototypeOf()
+- handler.setPrototypeOf() handler.preventExtensions()
+- handler.isExtensible()
+- handler.construct()
+- handler.get()
+- handler.set()
+- handler.has()
+- handler.ownKeys()
+
+### Get Example
+
+```JavaScript
+function Employee () {
+	this.name = 'Milton Waddams';
+	this.salary = 0;
+}
+
+var e = new Employee();
+var p = new Proxy(e, {
+	get: function (target, prop, receiver) {
+		return "Attempted access: " + prop;
+	}
+});
+
+console.log(p.salary); // output: Attempted access: salary
+```
+
+### Calling Functions by Proxy
+
+```JavaScript
+function getId() {
+	return 55;
+}
+
+var p = new Proxy(getId, {
+	apply: function (target, thisArg, argumentsList) {
+		return Reflect.apply(target, thisArg, argumentsList);
+	}
+});
+
+console.log( p() ); // output: 55
+```
+
+### Revocable Proxy
+
+```JavaScript
+var t = {
+tableId: 99
+}
+
+let { proxy, revoke } = Proxy.revocable(t, {
+	get: function (target, prop, receiver) {
+		return Reflect.get(target, prop, receiver) + 100;
+	}
+});
+
+console.log(proxy.tableId); // output: 199
+revoke();
+console.log(proxy.tableId); // output: Property does not exist
+```
