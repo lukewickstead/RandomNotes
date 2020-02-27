@@ -18,6 +18,7 @@ Relevant links:
   - https://cloudacademy.com/amazon-web-services/labs/configuring-static-website-s3-and-cloudfront-65/
   - https://cloudacademy.com/lambda-edge-network-latency/
 
+
 ## AWS Global Infrastructure: Availability Zones
 
 - Availability Zones and Regions are closely related
@@ -33,7 +34,9 @@ resilience purposes
 - This localized geographical grouping of multiple AZs, which would include multiple data centers, is defined as an AWS Region
 - Multiple AZs within a region allows you to create highly available and resilient applications and services
 
+
 ## AWS Global Infrastructure: Regions
+
 - A Region is a collection of availability zones that are geographically located close to one other
 - AWS has deployed them across the globe to allow its worldwide 
 - Every Region will act independently of the others, and  each will contain at least two Availability Zones
@@ -46,6 +49,7 @@ have specific laws and governance about the use of data
 account when architecting your infrastructure
 - Some services are classed as global services, such as AWS Identity & Access Management (IAM) or Amazon CloudFront, which means that these services are not tied to a specific region
 The AWS GovCloud is an isolated region in the U.S. that is only available to U.S. government agencies and organizations in government regulated industries
+
 
 ## Region and Availability Zone Naming Conventions
 
@@ -60,6 +64,7 @@ The AWS GovCloud is an isolated region in the U.S. that is only available to U.S
 - If you have multiple AWS accounts and you try to coordinate resources within the same AZ by selecting the same AZ 
 Code Name, this may not necessarily mean that those resources are physically located within the same AZ
 
+
 ## AWS Global Infrastructure: Edge Locations
 
 - Edge Locations are AWS sites deployed in major cities and highly populated areas across the globe
@@ -68,9 +73,10 @@ Code Name, this may not necessarily mean that those resources are physically loc
 Amazon CloudFront and AWS Lambda@Edge to cache data and reduce latency for end user access by using the Edge Locations as a global Content Delivery Network  (CDN)
 - Edge Locations are primarily used by end users who are accessing and using your services
 
+
 ## AWS Global Infrastructure: Regional Edge Cache
+
 - In November 2016, AWS announced a new type of Edge Location, called a Regional Edge Cache
 - These sit between your CloudFront Origin servers and the Edge Locations. 
 - A Regional Edge Cache has a larger cache width than each of the individual Edge Locations, and because data expires from the cache at the Edge Locations, the data is retained at the Regional Edge Caches
 - Therefore, when data is requested at the Edge Location that is no longer available, the Edge Location can retrieve the cached data from the Regional Edge Cache instead of the Origin servers, which would have a higher latency
-
