@@ -12,6 +12,7 @@
   - c3.2xlarge
 - Instance store volumes have the same security mechanisms provided by EC2
 
+
 ## Benefits
 
 - No additional cost for storage, it's included in the price of the instance
@@ -21,6 +22,7 @@
   - 1.4 million write IOPS
 - Instance store volumes are ideal as a cache or buffer for rapidly changing data without the need for retention
 - Often used within a load balancing group, where data is replicated and pooled between fleet
+
 
 ## Anti-patterns  
 

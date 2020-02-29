@@ -7,6 +7,7 @@
 - Retrieval of your data can take up to several hours
 - The data structure within Glacier is centered around vaults and archives
 
+ 
 ## Vaults and Archives
 
 - Vaults
@@ -17,7 +18,9 @@
   - Archives can be any object similarly to S30
   - You can have unlimited archives within your Glacier Vaults
 
+
 ## Glacier Dashboard
+
 - The Glacier Dashboard within AWS management console, only allows you to create your vaults
 - Any operational process to upload and retrieve data has to be done using code:
   - The Glacier web app service API
@@ -26,11 +29,13 @@
     - Simplifies the process of authentication
     - https://docs.aws.amazon.com/amazonglacier/latest/dev/using-aws-sdk.html
 
+
 ## Moving Data In Glacier
 
 1. Create your vaults as a container for your archives using the Glacier console
 2. Move your data into the Glacier vault using the API or SDKs
 3. Or from S3 using a Lifecycle rule
+
 
 ## Data Retrieval
 
@@ -49,6 +54,7 @@
   - The cheapest option for data retrieval
   - Costs $0.0025 per GB $0.025 per 1,000 requests
 
+
 # Security 
 
 - Data is encrypted by default using AES-256 algorithm
@@ -66,6 +72,7 @@
 
 You would Vault Access Policies to govern access control features that may change over time and you would use Vault Lock Policies to help you maintain compliance using access controls that must not be changed. 
 
+
 ## Pricing
 
 - Glacier offers a single storage regardless of how much storage is being used
@@ -77,3 +84,4 @@ You would Vault Access Policies to govern access control features that may chang
   - Expedited: $10.50 per 1,000 requests
   - Standard: $0.05 per 1,000 requests
   - Bulk: $0.00265 per 1,000 requests
+- https://aws.amazon.com/glacier/pricing/

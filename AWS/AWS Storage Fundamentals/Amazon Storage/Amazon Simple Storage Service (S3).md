@@ -1,22 +1,4 @@
-# Storage Fundamentals for AWS
-
-- Block Storage
-  - Data is stored in chunks known as blocks
-  - Blocks are stored on a volume and attached to a single instance
-  - Provide avery low latency data access
-  - Comparable to DAS storage used in premises
-- File Storage
-  - Data is stored as separate files with a series of directories
-  - Data is stored within a file system
-  - Shared access is provided for multiple users
-  - Comparable to NAS storage used on premises
-- Object Storage
-  - Objects are stored across a flat address space
-  - Objects are referenced by a unique key
-  - Each object can also have associated metadata to help categorize and identify the object
-
-
-## Amazon Simple Storage Service (S3)
+# Amazon Simple Storage Service (S3)
 
 - A fully managed object based storage service
 - Highly available
@@ -28,12 +10,14 @@
 - Smallest file size supported = 0 bytes
 - Largest file size supported = 5 terabytes
 
-### Regional Base
+
+## Regional Base
 
  - Specify region
  - Data copied to multiple AZs in that region for durability
 
-### Durability & Availability
+
+## Durability & Availability
 
 - Objects stored in S3 have a durability of 99.999999999%
 - S3 stored numerous copies of the same data in different AZs
@@ -41,7 +25,8 @@
 - Availability assured by Amazon of Amazon S3 is 99.99% of the time
 - Durability is the probability of maintaining your data without being lost
 
-### S3 Buckets
+
+## S3 Buckets
 
 - Objects are stored in S3 buckets
 - The bucket name must be globally unique
@@ -49,7 +34,8 @@
 - Limitation of 100 buckets per AWS account but can be increased is required if requested through AWS
 - Objects have a unique object key identifying that object
 
-### Storage Classes
+
+## Storage Classes
 
 - Standard
 - Standard - IA (Infrequent Access)
@@ -93,7 +79,7 @@
   5. Do I know the access patterns of my data?
 
 
-## Security
+# Security
 
 - Bucket Policies
   - Impose set access controls within specific bucket
@@ -115,7 +101,8 @@
   - SSL is supported
   - Client vs Server encryption notes where encryption takes place.
 
-## Data Management
+
+# Data Management
 
 - Versioning
   - Allows for multiple versions of the same object to exist
@@ -129,12 +116,14 @@
   - Ability to configure specific criteria to automatically move data between storage classes, including Glacier or even delete the data completely
   - The time frame is configurable allowing you to set for your own requirements
 
-## Data Backup
+
+# Data Backup
 
 - Some people use S3 for back ups
 - AWS can manage transfer of your data to S3 in addition to your own on on site backup
 
-## Static Content & Websites
+
+# Static Content & Websites
 
 - S3 is perfect for storing static content
 - Any object can be made public and referenced via a URL
@@ -142,7 +131,7 @@
 - Entire static website can be hosted on Amazon S3
 
 
-## Examples Of Service Integration
+# Examples Of Service Integration
 
 - Elastics Back Store
   - EBS volumes perform snapshot backups which are then stored on S3
@@ -151,12 +140,14 @@
 -  Amazon CloudFront
    - S3 buckets can be used as a CloudFront origin within a distribution
 
-## Pricing
+
+# Pricing
 
 - Reduced Redundancy Storage is more expensive, it was less expensive than standard but is no longer applicable
 - Infrequent access is cheaper but not as accessible
 
-## Additional Costs
+
+# Additional Costs
 
 - Requests
   - PUT, COPY, POST and GET and charged on 10K requests basis
@@ -164,10 +155,10 @@
   - Data transferred into S3 is free
   - Data transfer to another region is charged
 
-## S3 Anti-patterns
+
+# S3 Anti-patterns
 
 - Data archiving for long term use
 - Dynamic and fast changing
 - File system requirements
 - Structure data with queries
-

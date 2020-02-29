@@ -11,17 +11,24 @@
 - Multiple EBS volumes can be attached to a single EC2 instance
 - Data is retained if the EC2 instance is stopped restarted or terminated
 
+
 # EBS Snapshots
 
-- Snapshot in time
+- Snapshot of a point in time
 - Scheduled snapshots
-- They incremental
-- Can restore
+- Can be done programmativally
+- They are incremental
+- Can create a new volume from that snapshot
+- You can copy snapshots between regions
+
 
 ## High Availability
 
-- Replicated multiple times in multiple AZs in the same region
+- Each write to your EBS is replicated multiple times to the same AZ of your region
+- EBS is only available to one AZ
+- Snapshots are available between regions
 - Should your availability zone fail, you will lose access to your EBS volume. Should this occur, you can simply recreate the volume from your previous snapshot, which is accessible from all availability zones within that region, and attach it to another instance in another availability zone
+
 
 ## EBS Volume Types
 
@@ -39,7 +46,6 @@
   - Types:
     - Cold HDD (SC1)
     - Throughput Optimized HDD (ST1)
-
 - General Purpose SSD (GP2)
   - Provides single digit millisecond latency
   - Can burst up to 3,000 IOPS
@@ -67,6 +73,7 @@
   - Delivers 99% of expected throughout
   - Not possible to use these as a bot volumes for your EC2 instances
 
+
 ## Encryption
 
 - EBS offers encryption at rest and in transit
@@ -74,6 +81,7 @@
 - It can be enabled with a checkbox
   - AES-256 -> AWS KMS ? CMK/DEK
 - https://cloudacademy.com/blog/how-to-encrypt-an-ebs-volume-the-new-amazon-ebs-encryption
+
 
 ## Creating EBS Volume
 
@@ -87,12 +95,14 @@
    - You must specify which AZ that the volume will exit in
    - EBS volumes can only be attached to EC2 instances that exist within the same AZ
 
+
 ## Changing The Size Of An EBS Volume
 
 - EBS volumes are elastically scalable
 - Increase the volume size via the AWS Management Console of AWS CLI
 - After the increase you must extend the filesystem on the EC2 instance to utilize the additional storage
 - It's possible to resize a volume by creating a new volume from a snapshot
+
 
 ## Pricing
 
@@ -105,6 +115,7 @@
 - EBS Volumes are billed on a per-second basis
 - Remember that EBS snapshots are stored on Amazon S3 which will incur standard S3 storage costs
 
+
 ## Anti Patterns
 
 - EBS is not well suited for all storage requirements
@@ -112,3 +123,44 @@
   - Multi-instance storage access
   - Very high durability and availability
   
+
+## Create SBS and Mount and Unmount
+
+To change the permission on a pem file:
+
+```
+chmod 400 1242323234423.pem
+```
+
+To list all disks:
+
+```
+lsblk
+```
+
+To fomat an attached disks:
+
+```
+sudo mkfs -t ext4 /dev/NAME_OF_YOUR_DEVICE
+sudo mkdir /mnt/ebs-store
+sudo mount /dev/NAME_OF_YOUR_DEVICE /mnt/ebs-store
+sudo nano /etc/fstab
+```
+
+Add into the file:
+
+```
+/dev/NAME_OF_YOUR_DEVICE /mnt/ebs-store ext4 defaults,noatime 1 2
+```
+
+Ctrl-O to save
+
+Even though snapshots are saved incrementally, the snapshot deletion process is designed so that you need to retain only the most recent snapshot in order to restore the volume.
+
+You can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued. This might exclude any data that has been cached by any applications or the operating system. If you can pause any file writes to the volume long enough to take a snapshot, your snapshot should be complete. However, if you can't pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You can remount and use your volume while the snapshot status is "pending".
+
+To unmount 
+
+```
+sudo umount -d /mnt/ebs-store/
+```
