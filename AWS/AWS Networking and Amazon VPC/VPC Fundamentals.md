@@ -51,8 +51,8 @@
 ## Architecting For High Availability And Resilience
 
 - When you create a subnet, you have to create it in one of the availability zones that are available within that region- 
-- If all your subnets and resources are in the same AZ, and that AZ goes down, everything will gisapear
-- Carving up your architecture into multiple subnets accross multiple AZs would be better
+- If all your subnets and resources are in the same AZ, and that AZ goes down, everything will disappear
+- Carving up your architecture into multiple subnets across multiple AZs would be better
 
 ## IP Addresses
 
@@ -62,4 +62,4 @@
   - 10.0.1.1 is for AWS routing
   - 10.0.1.2 is for AWS DNS
   - 10.0.1.3 is for future use
-  - 10.0.1.255 is for braadcast address
+  - 10.0.1.255 is for broadcast address

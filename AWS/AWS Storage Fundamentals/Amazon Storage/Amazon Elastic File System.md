@@ -23,7 +23,7 @@
 - Only compatible with NFS version 4, and 4.1. With this in mind, EFS does not currently support the Windows operating system
 - You must insure that your Linus EC2 instance has the NFS client installed for the mounting process, and the NFS client version 4.1 is recommended for this procedure
 - For each mount point, you are able to select which subnet the mount point exists in, as well as defining your security group to control access from what instance level
-- Definine your tags
+- Define your tags
 - Performance mode
   - General purpose
     - Used for most cases
@@ -68,5 +68,5 @@
 ## Anti-patterns
 
 - Data archiving; use Amazon Glacier
-- Relational databasel use EBS
+- Relational databases use EBS
 - Temporary storage; use EC2 instance store volumes

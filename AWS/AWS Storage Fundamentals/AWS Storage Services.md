@@ -1,6 +1,6 @@
 # Storage Fundamentals for AWS
 
-## Data Storage Categorisation
+## Data Storage Categorization
 
 - Block Storage
   - Data is stored in chunks known as blocks

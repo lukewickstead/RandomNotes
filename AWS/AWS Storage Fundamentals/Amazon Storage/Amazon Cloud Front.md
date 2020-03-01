@@ -1,6 +1,6 @@
 # Amazon CloudFront service
 
-- Acts as a Content Delivert Network (CDN)
+- Acts as a Content Delivery Network (CDN)
 - Distributes data requested through web traffics closer to the end user via edge locations
 - As the data is cached, durability of your data is not possible
 - Origin data can come rom Amazon S3
@@ -33,7 +33,7 @@
 
 - You must specify your origin location
 - Select specific caching behavioral options
-- Definie the distribution settings themselves (which edge locations you want your data to be distributed to)
+- Define the distribution settings themselves (which edge locations you want your data to be distributed to)
   - US, Canada and Europe
   - US, Canada, Europe and Asia
   - All edge locations (best performance)

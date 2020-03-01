@@ -104,5 +104,5 @@ Storage Gateway allows you to provide a gateway between your own data center's s
   - You are also charged one cent per gigabyte of virtual tape retrieval 
 - Data transfer
   - Inbound data transfer is free
-  - Outboud data to another gateway in a different region
+  - Outbound data to another gateway in a different region
   - Amount of data transferred back to your on-premises gateway

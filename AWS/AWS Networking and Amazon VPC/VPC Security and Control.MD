@@ -37,7 +37,7 @@
 ## NAT Gateway
 
 - If we have the responsibility of maintaining the operating systems of our EC2 instances, then we need to be able to download updates
-- How can we download updates on an instance that sits wihtin a private subnet? Via a NAT Gateway
+- How can we download updates on an instance that sits within a private subnet? Via a NAT Gateway
 - NAT gateway sits within the public subnet
 - Because it sits within the public subnet, it has to have a public IP address in the form of an EIP which is an Elastic IP address, and this is assigned to the instance itself
 - The route table of the private subnet needs access to the nat gateway
@@ -53,7 +53,7 @@
 
 ## Bastion Host
 
-- Allow access to an EC2 instnace hosted on a private subnet, probably to allow maintenances
+- Allow access to an EC2 instance hosted on a private subnet, probably to allow maintenances
 - It's not possible to initiate an outside request to connect through to the internet down through to the internet gateway of our VPC and then across to our private subnet
 - A bastion host sits within the public subnet and this is just another EC2 instance
 - It needs to be hardened and very robust, but effectively, it needs to be tightened down to remove any kind of vulnerabilities and loose access controls

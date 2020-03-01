@@ -16,7 +16,7 @@
 
 - Snapshot of a point in time
 - Scheduled snapshots
-- Can be done programmativally
+- Can be done programmatically
 - They are incremental
 - Can create a new volume from that snapshot
 - You can copy snapshots between regions
@@ -138,7 +138,7 @@ To list all disks:
 lsblk
 ```
 
-To fomat an attached disks:
+To format an attached disks:
 
 ```
 sudo mkfs -t ext4 /dev/NAME_OF_YOUR_DEVICE

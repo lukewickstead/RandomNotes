@@ -7,7 +7,7 @@ ssh -i /path/to/your/keypair.pem user@server-ip
 ```
 
 - server-ip is the Public IP of your server, found on the Description tab of the running instance in the EC2 Console
-- user is the remote system userthat will be used for the remote authentication
+- user is the remote system user that will be used for the remote authentication
   -  ec2-user for Amazon Linux and RedHat
   -  admin for Debian
   -  ubuntu for ubuntu
