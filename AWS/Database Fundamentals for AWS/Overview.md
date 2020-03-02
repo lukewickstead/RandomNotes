@@ -115,4 +115,3 @@
   - Every table must have a primary key
   - Scales fast
   - Lighter in design
-  
