@@ -239,3 +239,12 @@ Using the resource component within the policy, you can also specify which CMKs 
     - https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-creating-cloudwatch-alarm.html
 - If you are not confident that your CMK is no longer in use or that it sh9uld be deleted then you can simply disable the CMK
 - If you are using a CMK which has your own key material imported then you can delete just the key material from the CMK
+
+
+## Learning important Key Management Service (KMS) terms (Lab)
+
+Customer Master Keys (CMK) - The primary resources in AWS KMS are customer master keys (CMKs). Typically you use CMKs to protect data encryption keys (or data keys) which are then used to encrypt or decrypt larger amounts of data outside of the service. CMKs never leave AWS KMS unencrypted, but data keys can. AWS KMS does not store, manage, or track your data keys. There is one AWS-managed CMK for each service that is integrated with AWS KMS. When you create an encrypted resource in these services, you can choose to protect that resource under the AWS-managed CMK for that service. This CMK is unique to your AWS account and the AWS region in which it is used, and it protects the data keys used by the AWS services to protect your data.
+
+Data keys - Data keys are used encrypt large data objects within an application outside AWS KMS. 
+
+Key rotation and Backing Keys - When you create a customer master key (CMK) in AWS KMS, the service creates a key ID for the CMK and key material referred to as a backing key that is tied to the key ID of the CMK. If you choose to enable key rotation for a given CMK, AWS KMS will create a new version of the backing key for each rotation. It is the backing key that is used to perform cryptographic operations such as encryption and decryption. Automated key rotation currently retains all prior backing keys so that decryption of encrypted data can take place transparently. CMK is simply a logical resource that does not change regardless of whether or of how many times the underlying backing keys have been rotated.
