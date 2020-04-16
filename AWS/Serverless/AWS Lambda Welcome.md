@@ -17,5 +17,5 @@ Elastic Beanstalk is a PaaS that lets you deploy code without worrying about the
 Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Container Service for Kubernetes (Amazon EKS) are centered around containers compared to the individual functions of Lambda. ECS and EKS require less managerial overhead compared to running containers on EC2 instances, but generally require some operational expertise. Lambda is ideal for developers who just want to focus on their code.
 
 Simple Workflow Service is a coordination service, and you must provision workers to complete your tasks.
-
+****
 A Lambda function is a small unit of computation that can execute in parallel, in a stateless fashion. This is only partially true though since you can potentially have some shared initialization code, at the container level.
