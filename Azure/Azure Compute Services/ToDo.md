@@ -1,0 +1,4 @@
+- App Service Environments
+  - https://docs.microsoft.com/en-us/azure/app-service/environment/intro
+- Azure sprint-cloud service
+  - https://docs.microsoft.com/en-us/azure/spring-cloud/

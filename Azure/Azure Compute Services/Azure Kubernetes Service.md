@@ -3,6 +3,8 @@
 ## Overview
 - An open-source tool for orchestrating and managing many container images and applications.
 - Lets you deploy a managed Kubernetes cluster in Azure.
+- Azure AKS is a managed service, offloading much of the complexities of Kubernetes to Azure
+- Azure AKS is free but you have to pay for the nodes
 ## Features
 - Uses clusters and pods to scale and deploy applications.
 - Kubernetes can deploy more images of containers as needed.
@@ -14,11 +16,11 @@
 - Use **Azure Advisor** to optimize your Kubernetes deployments with real-time, personalized recommendations.
 ## Components
 - Kubernetes runs an application in your instance using **pods**.
-- A **node** is made up of several pods, and **node pools** are a group of nodes with the same configuration.
+- A **node** is made up of several **pods**, and **node pools** are a group of nodes with the same configuration.
 - Use a **node selector** to control where a pod should be placed.
 - You can run at least 2 nodes in the default node pool to ensure your cluster operates reliably.
 - Multi-container pods are placed on the same node and allow containers to share the related resources.
-- You can specify maximum resource limits that prevent a given  pod from consuming too much compute resources from the underlying node.
+- You can specify maximum resource limits that prevent a given pod from consuming too much compute resources from the underlying node.
 - A **deployment** determines the number of replicas (pods) to be created, but you must define a manifest file in YAML format first.
 - With **StatefulSets**, you can maintain the application’s state within a single pod life cycle.
 - The resources are logically grouped into a **namespace**, and a user may only interact with resources within their assigned namespaces.
@@ -49,4 +51,3 @@
 - Downgrading a version is not supported.
 ## Sources
 - https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes   
-- https://azure.microsoft.com/en-us/services/kubernetes-service

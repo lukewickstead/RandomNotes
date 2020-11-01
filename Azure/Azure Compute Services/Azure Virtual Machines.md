@@ -1,7 +1,12 @@
 # Azure Virtual Machines
-- Linux-based and Windows-based virtual machines
+[toc]
+
 ## Features
-- Server environments called **virtual machines**.
+- Server environments called **virtual machines**
+- Choose a VM when you need more control over the computing environment than the other choices offer
+- An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it
+- Still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it
+- Linux-based and Windows-based virtual machines
 - A package OS and additional installations in a reusable template are called **VM Images**.
 - Supports various configurations of CPU, memory, storage, and networking capacity for your virtual machines, known as  virtual machine series
   - A, Bs, D, and DC-Series for general purpose
@@ -11,7 +16,7 @@
   - G-series for memory and storage optimized
   - H-series for high-performance computing
   - N-series for GPU optimized
-- Contain the virtual machines using a **resource group**.
+- VMs are created inside a **resource group**.
 - Secure login information for your virtual machines using **key pairs.**
 - Persistent storage volumes for your data using **Azure Disk.**
 - Multiple physical locations for deploying your resources, such as virtual machines and Azure disk, known as **Regions** and **Availability Zones**. 
@@ -21,7 +26,13 @@
 - Virtual networks that you can create are logically isolated  from the rest of the Azure environment and can optionally connect to  your own network, known as **Azure Virtual Network** or **VNet**.
 - Add a script that will be run into the virtual machine while it is being provisioned called **custom data**.
 - A firewall allows you to specify the protocols, ports, and source IP ranges that can reach your virtual machines using **network security groups**.
+## Availability
+
+- For higher availability deploy two or more VMs running your workload inside of an availability set
+- An  availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centres as well as deployed onto hosts  with different maintenance windows
+
 ## VM Status
+
 - **Start – run your virtual machines. You are continuously billed while your VM is running.**
 - **Restart** – some updates do require a reboot.  In such cases, the VMs are shut down while Azure patches the  infrastructure, and then the VMs are restarted.
 - **Stop** – is just a normal shutdown. If the VM is in a  deallocated status, you will continue to be charged for the storage  needed for the operating system disk.

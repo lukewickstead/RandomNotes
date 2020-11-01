@@ -5,6 +5,7 @@
 - Enables low-touch workflows to provision, deploy, patch, and monitor applications with Service Fabric **application lifecycle management**.
 - Supports the deployment of multiple application instances.
 - A **service fabric cluster** is a set of virtual machines into which your microservices are deployed and managed.
+- An alternative would be Azure Spring-Cloud Service
 ## Security
 - Create or import a certificate using Azure Key Vault.
 - Use Azure Firewall to complement your existing Network Security Group rules to control access to your cluster.

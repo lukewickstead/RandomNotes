@@ -17,4 +17,4 @@
     - Health Check
 # Sources
 - https://docs.microsoft.com/en-us/azure/cyclecloud/overview?view=cyclecloud-7
-- https://azure.microsoft.com/en-us/features/azure-cyclecloud/
+- https://docs.microsoft.com/en-us/azure/architecture/topics/high-performance-computing
