@@ -1,0 +1,165 @@
+
+student-538-427846@Azure:~$ az deployment group create --resource-group $resource_group --template-file template.json --parameters @template.parameters.json
+
+{- Finished ..
+  "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Resources/deployments/template",
+  "location": null,
+  "name": "template",
+  "properties": {
+    "correlationId": "e62b6795-b581-4a43-ba1e-0003480fae82",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/publicIPAddresses/caPublicIp",
+            "resourceGroup": "cal-538-71",
+            "resourceName": "caPublicIp",
+            "resourceType": "Microsoft.Network/publicIPAddresses"
+          },
+          {
+            "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/virtualNetworks/caVNET",
+            "resourceGroup": "cal-538-71",
+            "resourceName": "caVNET",
+            "resourceType": "Microsoft.Network/virtualNetworks"
+          }
+        ],
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/networkInterfaces/caVMNic",
+        "resourceGroup": "cal-538-71",
+        "resourceName": "caVMNic",
+        "resourceType": "Microsoft.Network/networkInterfaces"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/networkInterfaces/caVMNic",
+            "resourceGroup": "cal-538-71",
+            "resourceName": "caVMNic",
+            "resourceType": "Microsoft.Network/networkInterfaces"
+          }
+        ],
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Compute/virtualMachines/ca-lab-vm",
+        "resourceGroup": "cal-538-71",
+        "resourceName": "ca-lab-vm",
+        "resourceType": "Microsoft.Compute/virtualMachines"
+      }
+    ],
+    "duration": "PT2M48.2738389S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Compute/virtualMachines/ca-lab-vm",
+        "resourceGroup": "cal-538-71"
+      },
+      {
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/networkInterfaces/caVMNic",
+        "resourceGroup": "cal-538-71"
+      },
+      {
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/publicIPAddresses/caPublicIp",
+        "resourceGroup": "cal-538-71"
+      },
+      {
+        "id": "/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/cal-538-71/providers/Microsoft.Network/virtualNetworks/caVNET",
+        "resourceGroup": "cal-538-71"
+      }
+    ],
+    "outputs": null,
+    "parameters": {
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "student"
+      },
+      "vmSize": {
+        "type": "String",
+        "value": "Standard_B1s"
+      },
+      "windowsOSVersion": {
+        "type": "String",
+        "value": "2019-Datacenter-smalldisk"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.Network",
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locations": [
+              "southcentralus"
+            ],
+            "properties": null,
+            "resourceType": "publicIPAddresses"
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locations": [
+              "southcentralus"
+            ],
+            "properties": null,
+            "resourceType": "virtualNetworks"
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locations": [
+              "southcentralus"
+            ],
+            "properties": null,
+            "resourceType": "networkInterfaces"
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Compute",
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locations": [
+              "southcentralus"
+            ],
+            "properties": null,
+            "resourceType": "virtualMachines"
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "7884101625105962523",
+    "templateLink": null,
+    "timestamp": "2020-10-24T10:51:01.864172+00:00",
+    "validatedResources": null
+  },
+  "resourceGroup": "cal-538-71",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
+student-538-427846@Azure:~$
+student-538-427846@Azure:~$ B
