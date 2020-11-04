@@ -6,4 +6,7 @@
 
 ## Chosing An Azure Compute Service
 
-![](/home/luke/src/RandomNotes/Azure/Azure Compute Services/compute-decision-tree.svg)
+![Chosing an Azure Compute Service](https://docs.microsoft.com/en-us/azure/architecture/guide/images/compute-decision-tree.svg)
+
+
+

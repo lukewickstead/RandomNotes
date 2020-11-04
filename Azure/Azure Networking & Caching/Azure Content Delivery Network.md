@@ -26,6 +26,8 @@
 - With geo-filtering, you can set rules for different paths to allow or block content in selected countries/regions.
 - CDN endpoint: <*tutorialsdojo*>.azureedge.net
 
+
+
 ## How Caching Works
 
 - Access the data quickly by storing the data in an origin server.
