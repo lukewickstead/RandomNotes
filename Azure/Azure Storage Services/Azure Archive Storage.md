@@ -1,10 +1,10 @@
 # Azure Archive Storage
 [toc]
 ## Overview
-- Store rarely accessed data which are held for a period of 180 days.
-- Snapshots are not applicable to archive storage.
-- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal
-- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-rehydration?tabs=azure-portal
+- Store rarely accessed data which are held for a period of 180 days
+- Snapshots are not applicable to archive storage
+
+  
 
 ## Features
 - It supports 2 rehydrate priorities: **High** and **Standard**
@@ -21,11 +21,26 @@
 - Blob index tags can be read, set, or modified while in the archive.
 - You can only copy archive blobs within the same storage account.
 - Encrypted data transfer to the cloud using HTTPS, and using 256-bit AES keys to automatically protect the data at rest.
+
+
+
 ## Use Cases
+
 - It is mainly used in long-term backup retention
 - If you need to minimize your cost, use Archive Storage to create a low cost, content archiving solution.
 - Archive storage provides secure, globally compliant storage for sensitive data.
 - You can also use Archive storage if you have a large amount of data that needs to be preserved.
+
+
+
 ## Pricing
+
 - Blobs are stored for at least 180 days in the archive  tier. Deleting or rehydrating archived blobs before the minimum number  of days will incur early deletion fees.
 - Charges on data access increases as the tier gets cooler. For  data in the cool and archive access tier, you’re charged a per-gigabyte  data access charge for reads.
+
+
+
+## Sources
+
+- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal
+- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-rehydration?tabs=azure-portal

@@ -1,4 +1,5 @@
 # Azure Blob vs Disk vs File Storage
+
 |                              | **Blob Storage**                                             | **Disk Storage**                                             | **File Storage**                                             |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Type of storage**          | Object storage to store all types of data formats.           | Block storage for virtual machines.                          | File system across multiple machines.                        |

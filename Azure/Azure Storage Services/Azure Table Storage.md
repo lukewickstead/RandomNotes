@@ -4,9 +4,11 @@
 - A NoSQL key-value store for large semi-structured datasets.
 - Supports flexible data schema.
 - Performs OData-based queries
-- https://azure.microsoft.com/en-us/services/storage/tables
-- https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview
+
+
+
 ## Features
+
 - Allows you to store and query huge sets of structured, non-relational data. And as demand grows, your tables will scale-out.
 - Scale-up without having to manually shard your dataset.
 - The data is replicated three times within a region using geo-redundant storage.
@@ -16,8 +18,16 @@
 - You can store any number of entities in a table, up to the storage account’s capacity limit.
 - Every entity stored in a table must have a unique combination of `PartitionKey` and `RowKey`
 - The account name, table name, and `PartitionKey` together identify the partition within the storage service where Table storage stores the entity
-### Capacity considerations
+
+
+
+## Capacity considerations
+
 The following table includes some of the key values to be aware of when you're designing a Table storage solution:
+
+
+
+
 | Total capacity of an Azure storage account   | 500 TB                                                       |
 | -------------------------------------------- | ------------------------------------------------------------ |
 | Number of tables in an Azure storage account | Limited only by the capacity of the storage account.         |
@@ -27,3 +37,10 @@ The following table includes some of the key values to be aware of when you're d
 | Size of the `PartitionKey`                   | A string up to 1 KB in size.                                 |
 | Size of the `RowKey`                         | A string up to 1 KB in size.                                 |
 | Size of an entity group transaction          | A transaction can include at most 100 entities, and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
+
+
+
+## Sources
+
+- https://azure.microsoft.com/en-us/services/storage/tables
+- https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview

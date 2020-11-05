@@ -157,6 +157,12 @@
 
 
 
+## Stored Procedures, Triggers  & Change Feed Notifications
+
+- TODO
+
+
+
 ## Sources
 
 - https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
