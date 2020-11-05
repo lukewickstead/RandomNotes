@@ -1,9 +1,10 @@
-# Azure Container Instances
+# Azure Container Instances (ACI)
 
 [toc]
 
 ## Overview
 
+- Containers are lightweight VMs, they share more resources with the host OS and therefore have much smaller foot prints
 - Run Docker containers on-demand in a managed, serverless Azure environment
 - Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration
 - Run event-driven applications, quickly deploy from your container  development pipelines, and run data processing and build jobs
@@ -14,6 +15,8 @@
 - Can expose with a custom DNS name label so you can reach your container at *customlabel*.*azureregion*.azurecontainer.io
 - Can mount Azure File Shares backed by Azure Storage to retrieve and persist state
 - Azure Container Instances provides some of the basic scheduling capabilities of orchestration platforms
+
+
 
 ## Container Group
 
@@ -26,3 +29,8 @@
   - Empty directory
   - Cloned git repo
 
+
+
+## Source
+
+- https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview
