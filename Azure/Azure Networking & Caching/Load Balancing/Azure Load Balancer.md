@@ -1,4 +1,4 @@
-### Azure Load Balancer
+# Azure Load Balancer
 
 [toc]
 
