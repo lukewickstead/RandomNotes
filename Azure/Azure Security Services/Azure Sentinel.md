@@ -10,6 +10,8 @@
 - Data connection methods in Sentinel: Service to service integration, External solutions via API, and External solutions via an agent.
 - Azure Sentinel roles: Reader, Responder, and Contributor.
 
+
+
 ## Threat Management
 
 - Sentinel provides the following features: Collect, Detect, Investigate, and Respond.
@@ -19,10 +21,14 @@
 - Sentinel provides **deep investigation** tools to find the root cause of a potential security threat.
 - **Hunting** allows you to find issues in your data.
 
+
+
 ## Pricing
 
 - Data retention is charged after 90 days.
 - You are charged for the ingested data (per GB).
+
+
 
 ## Sources
 

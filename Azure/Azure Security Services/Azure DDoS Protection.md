@@ -7,11 +7,11 @@
 
 ## Features
 - **Basic**
-- - Enabled by default (free).
+  - Enabled by default (free).
   - It mitigates common network attacks.
   - Both basic and standard protects IPv4 and IPv6 public IP addresses.
 - **Standard**
-- It has advanced capabilities to protect you against network attacks such as logging, alerting, and telemetry.
+  - It has advanced capabilities to protect you against network attacks such as logging, alerting, and telemetry.
   - Mitigates the following attacks:
     - Volumetric attacks – flood the network layer with attacks.
     - Protocol attacks – exploit a weakness in layers 3 and 4.
@@ -20,13 +20,17 @@
   - The metric data is retained for 30 days.
   - Provides autotuned mitigation policies (TCP/TCP SYN/UDP) for each public IP.
 
+
+
 ## Pricing
 
 - Basic DDoS Protection provides protection at no additional charge.
 - Standard DDoS Protection is a paid service. You are charged for the processed data every month (per GB).
 
-## Source:    
-- https://azure.microsoft.com/en-us/services/ddos-protection/    
+
+
+## Source
+
 - https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview    
 - https://docs.microsoft.com/en-us/azure/security/fundamentals/ddos-best-practices
 - https://www.youtube.com/embed/D0vR6YNRCww

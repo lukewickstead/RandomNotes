@@ -43,6 +43,8 @@
 - To manage multiple firewalls, you can use **Azure Firewall Manager**.
 - Protect your VDI deployments using Azure firewall DNAT rules and threat Intelligence filtering.
 
+
+
 ## Rule Types
 
 Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule  collections are executed in order of their priority. Network rule  collections are higher priority than application rule collections, and  all rules are terminating.
@@ -53,12 +55,15 @@ There are three types of rule collections:
 - Network rules: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
 - NAT rules: Configure DNAT rules to allow incoming connections.
 
+
+
 ## Pricing
 
 - You are charged for each firewall deployment
 - You are charged for any data processed by your firewall
 
+
+
 ## Sources
 
-- https://azure.microsoft.com/en-us/services/azure-firewall
 - https://docs.microsoft.com/en-us/azure/firewall/overview

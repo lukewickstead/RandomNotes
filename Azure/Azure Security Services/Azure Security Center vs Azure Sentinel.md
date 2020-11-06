@@ -14,6 +14,8 @@
 | **Threat Response Management**        | Manual                                                       | Automated                                                    |
 | **Integration**                       | You may use the Azure Security Center to provide Azure Sentinel with more information to identify, investigate, and remediate threats. |                                                              |
 
+
+
 ## Sources
 
 - https://docs.microsoft.com/en-us/azure/security-center/security-center-intro   

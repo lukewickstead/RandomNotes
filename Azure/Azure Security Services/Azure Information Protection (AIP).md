@@ -23,9 +23,8 @@
   - Confidential
   - Highly Confidential
 
-Want to learn more about Azure? Watch the official Microsoft Azure YouTube channel’s video series called [**Azure Tips and Tricks**](https://www.youtube.com/watch?v=k9eQ8p2BoYU&list=PLLasX02E8BPCNCK8Thcxu-Y-XcBUbhFWC).
+
 
 ## Sources
 
-- https://azure.microsoft.com/en-us/services/information-protection
 - https://docs.microsoft.com/en-us/azure/information-protection/what-is-information-protection

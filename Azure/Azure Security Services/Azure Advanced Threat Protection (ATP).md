@@ -24,5 +24,4 @@
 
 # Sources   
 
-- https://azure.microsoft.com/en-us/features/azure-advanced-threat-protection
 - https://docs.microsoft.com/en-us/azure-advanced-threat-protection/what-is-atp
