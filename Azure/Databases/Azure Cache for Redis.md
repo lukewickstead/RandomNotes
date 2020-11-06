@@ -73,3 +73,16 @@ The following policies are available:
 - **allkeys-random**: evict keys randomly in order to make space for the new data added.
 - **volatile-random**: evict keys randomly in order to make space for the new data added, but only evict keys with an **expire set**.
 - **volatile-ttl**: evict keys with an **expire set**, and try to evict keys with a shorter time to live (TTL) first, in order to make space for the new data added.
+
+
+
+## Purging
+
+- Delete all the keys of all the existing databases, not just the currently selected one
+  - FLIUSHALL ASYNC
+
+
+
+## Sources
+
+- https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview
