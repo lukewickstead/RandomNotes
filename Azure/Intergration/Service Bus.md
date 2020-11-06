@@ -9,6 +9,8 @@
 - Provides a reliable and secure platform for asynchronous data and state transfer.
 - Enables you to deliver messages to multiple subscribers and fan-out message delivery to downstream systems.
 
+
+
 ## Features
 
 - **Message Sessions** for implementing first in, first out (FIFO) and request-response patterns to ensure the order of messages in the queue.
@@ -20,6 +22,8 @@
 - **Autodelete on idle** enables you to set an idle interval to automatically delete a queue. Five minutes is the minimum duration.
 - **Duplicate detection** allows you to resend the same message and discard any duplicate copies.
 - You can continue the operation of your environment in a different region or datacenter with **geo-disaster recovery**.
+
+
 
 ## Components
 
@@ -34,11 +38,15 @@
 
 ​          ![img](https://pocket-image-cache.com//filters:no_upscale()/https%3A%2F%2Fk2y3h8q6.stackpathcdn.com%2Fwp-content%2Fuploads%2F2020%2F09%2Fazure-service-bus-2.png)                            
 
+
+
 ## Security
 
 - **Shared Access Signatures (SAS)** guards access to Service Bus based on authorization rules.
 - You can authenticate and authorize an application to access  Service Bus entities such as queues, topics, subscriptions, and filters  using **Azure AD**.
 - Create a security identity using **Managed identities for Azure resources** and associate that identity with access-control roles to grant custom permissions for accessing specific Azure resources.
+
+
 
 ## Pricing
 
@@ -47,6 +55,8 @@
   - The number of AMQP connections or HTTP calls
 - For hybrid connections, you are charged based on the number of listeners.
 - With Windows Communication Foundation (WCF) relays, you are charged based on the message volume and relay hours.
+
+
 
 ## Sources
 

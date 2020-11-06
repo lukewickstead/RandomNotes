@@ -1,6 +1,14 @@
 
 
-## Azure Logic Apps
+## Logic Apps
+
+
+
+[toc]
+
+## Overview
+
+
 
 - Allows you to automate your workflows without writing a single line of code.
 - Build your workflow using a logic app designer.
@@ -10,3 +18,7 @@
   - **Trigger** is the first step to run your logic app. 
   - **Actions** are steps that happen after the trigger and perform tasks in the workflow of your logic app.
   - **Enterprise Integration Pack** allows you to create an automated, scalable enterprise integration workflow.
+
+## Sources
+
+- https://docs.microsoft.com/en-us/azure/logic-apps
