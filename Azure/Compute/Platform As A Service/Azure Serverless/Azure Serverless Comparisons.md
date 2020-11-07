@@ -1,4 +1,9 @@
-# Azure Functions vs Logic Apps vs Event Grid
+# Azure Serverless Comparisons
+
+[toc]
+
+
+## Azure Functions vs Logic Apps vs Event Grid
 
 
 
@@ -13,4 +18,37 @@
 
 
 
-TODO: https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs?toc=/azure/azure-functions/durable/toc.json
+## Compare Azure Functions and Azure Logic Apps
+
+
+
+|                   | Durable Functions                                            | Logic Apps                                                   |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Development       | Code-first (imperative)                                      | Designer-first (declarative)                                 |
+| Connectivity      | [About a dozen built-in binding types](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings#supported-bindings), write code for custom bindings | [Large collection of connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list), [Enterprise Integration Pack for B2B scenarios](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-overview), [build custom connectors](https://docs.microsoft.com/en-us/azure/logic-apps/custom-connector-overview) |
+| Actions           | Each activity is an Azure function; write code for activity functions | [Large collection of ready-made actions](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-actions-triggers) |
+| Monitoring        | [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) | [Azure portal](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow), [Azure Monitor logs](https://docs.microsoft.com/en-us/azure/logic-apps/monitor-logic-apps) |
+| Management        | [REST API](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-http-api), [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2019) | [Azure portal](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow), [REST API](https://docs.microsoft.com/en-us/rest/api/logic/), [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/en-us/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Execution context | Can run [locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-runtime-overview) or in the cloud | Runs only in the cloud                                       |
+
+
+
+## Compare Functions and WebJobs
+
+
+
+| Functions                                                    | WebJobs with WebJobs SDK                                     |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#how-the-consumption-and-premium-plans-work) | ✔                                                            |                                                              |
+| [Develop and test in browser](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) | ✔                                                            |                                                              |
+| [Pay-per-use pricing](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan) | ✔                                                            |                                                              |
+| [Integration with Logic Apps](https://docs.microsoft.com/en-us/azure/azure-functions/functions-twitter-email) | ✔                                                            |                                                              |
+| Trigger events                                               | [Timer](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer) [Azure Storage queues and blobs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob) [Azure Service Bus queues and topics](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus) [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb) [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs) [HTTP/WebHook (GitHub, Slack)](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook) [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid) | [Timer](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer) [Azure Storage queues and blobs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob) [Azure Service Bus queues and topics](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus) [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb) [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs) [File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs) |
+| Supported languages                                          | C# F# JavaScript Java Python PowerShell                      | C#1                                                          |
+| Package managers                                             | NPM and NuGet                                                | NuGet2                                                       |
+
+
+
+## Sources 
+
+- https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs?toc=/azure/azure-functions/durable/toc.json

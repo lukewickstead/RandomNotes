@@ -4,6 +4,8 @@
 
 ## Comparison
 
+
+
 |                    | **Availability Set**                                         | **Scale Set**                                                |
 | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Description**    | A group of discrete virtual machines spread across fault domains. | A group of identically configured virtual machines spread across fault domains. |
@@ -13,6 +15,8 @@
 | **Distribution**   | Virtual machines are automatically distributed within a data center. | Virtual machine scale sets can be distributed within a single datacenter or across multiple data centers. |
 | **Number of VMs**  | You can only add a virtual machine to the availability set when it is created. | Scale sets can increase the number of virtual machines based on demand. |
 | **Pricing**        | Availability set has no additional charge. You only pay for the computing resources. | Scale sets have no additional charge. You only pay for the computing resources. |
+
+
 
 ## Sources
 

@@ -26,5 +26,5 @@
 
 ## Sources
 
-- https://azure.microsoft.com/en-us/services/storage/queues/
+- https://azure.microsoft.com/en-us/services/storage/queues
 - https://docs.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction

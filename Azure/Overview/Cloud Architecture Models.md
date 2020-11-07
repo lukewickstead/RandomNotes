@@ -7,6 +7,8 @@
 - Three deployment methods of cloud computing: **Public vs Private vs Hybrid.**
 - The model you choose for cloud deployment depends on your budget, security, scalability, and maintenance needs.
 
+
+
 ### Public Cloud
 
 - Focus on maintaining your applications without having to  worry about purchasing, managing, or maintaining the hardware on which  it runs.
@@ -18,6 +20,8 @@
 | Pay-as-you-go pricing                                        | Government policies, industry standards, or legal requirements |
 | You are not responsible for the updates and maintenance of the hardware. | You don’t own the hardware or services and you also can’t manage them as you may want to. |
 | The required technical knowledge is minimal.                 | Maintaining a legacy application might be hard to meet       |
+
+
 
 ### Private Cloud
 
@@ -31,6 +35,8 @@
 | You have control (and responsibility) over security          | To scale, you must buy, install, and set up new hardware     |
 | Compliance, or security requirements in your organization    | Private clouds require IT skills and expertise               |
 
+
+
 ### Hybrid Cloud
 
 - Data and applications can move between **private** and **public clouds**.
@@ -43,7 +49,9 @@
 | With the ability to scale to the public cloud, you pay for extra computing power only when needed. |                                                              |
 | Allows you to use your own equipment to meet the security and compliance requirements in your organization. |                                                              |
 
+
+
 ## Sources
 
-- https://azure.microsoft.com/en-us/overview/what-are-private-public-hybrid-clouds/   
+- https://azure.microsoft.com/en-us/overview/what-are-private-public-hybrid-clouds
 - https://docs.microsoft.com/en-us/learn/modules/principles-cloud-computing/4-cloud-deployment-models

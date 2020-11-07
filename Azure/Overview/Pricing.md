@@ -21,7 +21,7 @@
 - Free Tier offers limited usage of Azure products at no charge for 12 months.
 
   - You also get $200 credit that you can spend during the first 30 days.
-  - More details at https://azure.microsoft.com/en-us/free/
+  - More details at https://azure.microsoft.com/en-us/free
 
   - Estimate your expected monthly costs using **Azure Pricing Calculator.**
 
@@ -36,12 +36,16 @@
   - **Standard** – appropriate for production workload environments. Has 24/7 access to Azure’s technical support engineers by phone or email.
   - **Professional Direct** – suitable for business-critical  workloads. Has 24/7 access to Azure’s technical support engineers by  phone or email. Provides access to Operations Support, ProDirect  delivery managers, and Support APIs.
 
+
+
 ## Service Level Agreement (SLA)
 
 - It is the commitment of Microsoft for the uptime and connectivity of a service.
 - You could obtain a service credit if the service level agreement is not met by Microsoft.
 - Composite SLAs include several resources (*with different availability levels*) to support an application.
 - SLAs for multi-region deployments distribute the application  in more than one region for high availability and use Azure Traffic  Manager for failover if one region fails.
+
+
 
 ## Service Lifecycle
 
@@ -50,9 +54,11 @@
 - **General Availability** is the release of service to the general public and is fully supported by SLAs.
 - Azure updates allow you to get the latest updates on any Azure products and features.
 
+
+
 ## Sources
 
-- https://azure.microsoft.com/en-us/pricing/     
-- https://docs.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview     
-- https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics     
-- https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+- https://azure.microsoft.com/en-us/pricing
+- https://docs.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview
+- https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics
+- https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms

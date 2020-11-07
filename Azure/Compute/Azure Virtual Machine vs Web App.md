@@ -16,8 +16,10 @@
 | **Traffic Distribution** | Distribute the incoming network traffic using Azure load balancer. | Load balancing is integrated into App Service.               |
 | **Architecture Styles**  | The supported architecture styles are N-Tier and Web-Queue-Worker. | The supported architecture styles are N-Tier and Big compute (HPC). |
 
+
+
 ## Sources
 
-- https://docs.microsoft.com/en-us/azure/app-service/overview  
-- https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview  
+- https://docs.microsoft.com/en-us/azure/app-service/overview
+- https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview
 - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree

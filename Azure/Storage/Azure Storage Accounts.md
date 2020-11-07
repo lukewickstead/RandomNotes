@@ -31,14 +31,14 @@
 
 - Only hot and cool can be set at the account level
 - All tiers can be set at the blob level during of after upload
-- Hot
+- **Hot**
   - Frequently accessed data
   - New storage accounts are defaulted to this tier
   - Highest storage cost with lowest access cost
-- Cool
-  - Optimised for large amounts of data that is infrequently used and stored for at least 30 days
+- **Coo**l
+  - Optimized for large amounts of data that is infrequently used and stored for at least 30 days
   - More cost effective than hot but access costs are more expensive
-- Archive
+- **Archive**
   - Lowest storage costs but with the highest access costs
   - Only available for individual blocks
   - Can take many hours for retrieval
@@ -96,7 +96,7 @@
 ## Security
 
 - All storage accounts are encrypted using Storage Service Encryption (SSE) for data at res
-- Access can be granted by Azure AD, Share Key authorisation and Shared access signature (SAS Key)
+- Access can be granted by Azure AD, Share Key authorization and Shared access signature (SAS Key)
 
 
 

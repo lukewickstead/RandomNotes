@@ -16,6 +16,8 @@
 
 ​          ![img](https://pocket-image-cache.com//filters:no_upscale()/https%3A%2F%2Fk2y3h8q6.stackpathcdn.com%2Fwp-content%2Fuploads%2F2020%2F08%2FAzure-Architecture-1.png)                            
 
+
+
 ## Availability Zones
 
 - Each availability zone is a physical location within a region
@@ -25,6 +27,8 @@
   - **Zone-redundant services** – replicates automatically across zones
 
 ​          ![img](https://pocket-image-cache.com//filters:no_upscale()/https%3A%2F%2Fk2y3h8q6.stackpathcdn.com%2Fwp-content%2Fuploads%2F2020%2F08%2FAzure-Architecture-2.png)                            
+
+
 
 ## Resource Groups
 
@@ -37,6 +41,8 @@
 - Resources can interact with other resources in different resource groups
 - A resource group has a location, or region, as it stores metadata about the resources
 
+
+
 ## Azure Resource Manager (ARM)
 
 - A management layer allowing you to create, update and delete resources within your account.
@@ -45,6 +51,8 @@
 - Define the dependencies between resources so they’re deployed in the correct order.
 - Tag resources to logically organize all the resources in your subscription.
 - You can check the costs for a group of resources sharing the same tag.
+
+
 
 ## Azure Site Recovery
 
@@ -55,9 +63,9 @@
 ​          ![img](https://pocket-image-cache.com//filters:no_upscale()/https%3A%2F%2Fk2y3h8q6.stackpathcdn.com%2Fwp-content%2Fuploads%2F2020%2F08%2FAzure-Architecture-3.png)                            
 
 ## Sources:   
-- https://docs.microsoft.com/en-us/learn/modules/explore-azure-infrastructure/   
-- https://docs.microsoft.com/en-us/azure/availability-zones/az-overview   
-- https://azure.microsoft.com/en-us/global-infrastructure/government/   
-- https://docs.microsoft.com/en-us/azure/china/overview-operations   
-- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview   
-- https://azure.microsoft.com/en-us/services/site-recovery/
+- https://docs.microsoft.com/en-us/learn/modules/explore-azure-infrastructure
+- https://docs.microsoft.com/en-us/azure/availability-zones/az-overview
+- https://azure.microsoft.com/en-us/global-infrastructure/government
+- https://docs.microsoft.com/en-us/azure/china/overview-operations
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview
+- https://azure.microsoft.com/en-us/services/site-recovery
