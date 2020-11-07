@@ -36,13 +36,20 @@
 
 ## Policies
 
-- In Azure API Management (APIM), policies are a powerful capability of  the system that allow the publisher to change the behavior of the API  through configuration#
-- Policies are a collection of Statements that are  executed sequentially on the request or response of an API
+- In Azure API Management (APIM), policies are a powerful capability of  the system that allow the publisher to change the behavior of the API  through configuration
+- Policies are a collection of Statements that are  executed sequentially on the request or response of an API. They are divided into `inbound`, `backend`, `outbound`, and `on-error` sections
 - Popular  Statements include format conversion from XML to JSON and call rate  limiting to restrict the amount of incoming calls from a developer
 - Many more policies are available out of the box
 - Policies are applied inside the gateway which sits between the API  consumer and the managed API
 - The gateway receives all requests and  usually forwards them unaltered to the underlying API
-- However a policy  can apply changes to both the inbound request and outbound response.
+- However a policy  can apply changes to both the inbound request and outbound response
+- Consuming developers can be given access to the developer portal; similar to swagger. Documents the endpoints available, gives examples and even allows calling your environments
+- Secures endpoints by OAuth2.0, Client Certificates, IP whitelisting and subscriptions
+- Subscriptions are keys pass in to the request header and can exist at an API or endpoint level
+- Version management for APIs
+- Revision management for APIs; allows a new revision of an endpoint to be callable alongside the original revision. When you are ready for the new revision to go live you simply publish it
+- ProxyError allows the publisher to respond to errors in requests by configuring the on-error section in a policy
+- SOAP APIs can be imported and exposed as REST
 
 
 
