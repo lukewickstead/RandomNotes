@@ -44,12 +44,8 @@
 - **Artifact**
 
   - The address of an artifact contains loginUrl, repository and tag
-  - > ```
-    > [loginUrl]/[repository:][tag]
-    > ```
-  
+    - [loginUrl]/[repository:][tag]
 - **Repository**
-  
   - A repository is a group of similar container images and other artifacts.
   - Identify similar repositories and artifacts with namespaces
   
@@ -120,6 +116,190 @@
 - Users will be charged for the preceding SKU price until the  point of change and will be charged for the new SKU price after the  change has been made.
 - Standard networking fees apply to network egress.
 - If you replicate a registry to your desired regions, you are charged with premium registry fees for each region.
+
+
+
+### Create A Private Container Registry
+
+### Steps
+
+1. Create a resource group
+2. Create a container registry
+   - The registry name must be unique within Azure, and contain 5-50 alphanumeric characters
+   - Take a note of the loginServer from the output
+   - loginServer is in the format of *<registry-name>.azurecr.io*
+3. Login to registry
+4. Push image to registry
+   - Images must be tagged it with the  fully qualified name of your registry login server
+5. List container images
+6. Run image from repository
+7. Clean up resources
+
+
+
+### CLI
+
+```bash
+# 1. Create a resource group
+az group create --name myResourceGroup --location eastus
+
+# 2. Create a container registry
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
+  
+# 3. Login to reigstry
+az acr login --name <registry-name>
+
+# 4. Push image to registry
+docker pull hello-world # just to get an image
+docker tag hello-world <login-server>/hello-world:v1
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+docker push <login-server>/hello-world:v1
+docker rmi <login-server>/hello-world:v1 # clear up local image but not from ACR
+
+# 5. List container images
+az acr repository list --name <registry-name> --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table # lists tags
+
+# 6. Run image from repository
+docker run <login-server>/hello-world:v1
+
+# 7. Clean up resources
+az group delete --name myResourceGroup
+```
+
+
+
+### Portal
+
+1. Select **Create a resource** > **Containers** > **Container Registry**
+2. https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal
+
+
+
+### PowerShell
+
+```powershell
+# 1. Create a resource group
+Connect-AzAccount # login
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
+
+# 2. Create a container registry
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+
+# 3. Login to reigstry
+$creds = Get-AzContainerRegistryCredential -Registry $registry
+$creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
+
+# 4. Push image to registry
+docker pull hello-world # just to get an image
+docker tag hello-world <login-server>/hello-world:v1
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+docker push <login-server>/hello-world:v1
+docker rmi <login-server>/hello-world:v1 # clear up local image but not from ACR
+
+# 5. List container images
+
+# 6. Run image from repository
+docker run <login-server>/hello-world:v1
+
+# 7. Clean up resources
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+
+
+### ARM Template
+
+
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "acrName": {
+      "type": "string",
+      "defaultValue": "[concat('acr', uniqueString(resourceGroup().id))]",
+      "minLength": 5,
+      "maxLength": 50,
+      "metadata": {
+        "description": "Globally unique name of your Azure Container Registry"
+      }
+    },
+    "acrAdminUserEnabled": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Enable admin user that has push / pull permission to the registry."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for registry home replica."
+      }
+    },
+    "acrSku": {
+      "type": "string",
+      "defaultValue": "Premium",
+      "allowedValues": [
+        "Premium"
+      ],
+      "metadata": {
+        "description": "Tier of your Azure Container Registry. Geo-replication requires Premium SKU."
+      }
+    },
+    "acrReplicaLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Short name for registry replica location."
+      }
+    }
+  },
+  "resources": [
+    {
+      "comments": "Container registry for storing docker images",
+      "type": "Microsoft.ContainerRegistry/registries",
+      "apiVersion": "2019-12-01-preview",
+      "name": "[parameters('acrName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('acrSku')]",
+        "tier": "[parameters('acrSku')]"
+      },
+      "tags": {
+        "displayName": "Container Registry",
+        "container.registry": "[parameters('acrName')]"
+      },
+      "properties": {
+        "adminUserEnabled": "[parameters('acrAdminUserEnabled')]"
+      }
+    },
+    {
+      "type": "Microsoft.ContainerRegistry/registries/replications",
+      "apiVersion": "2019-12-01-preview",
+      "name": "[concat(parameters('acrName'), '/', parameters('acrReplicaLocation'))]",
+      "location": "[parameters('acrReplicaLocation')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ContainerRegistry/registries/', parameters('acrName'))]"
+      ],
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "acrLoginServer": {
+      "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries',parameters('acrName')),'2019-12-01-preview').loginServer]",
+      "type": "string"
+    }
+  }
+}
+```
+
+
+
+
 
 
 

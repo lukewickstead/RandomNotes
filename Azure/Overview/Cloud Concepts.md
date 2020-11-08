@@ -88,8 +88,8 @@
 | Availability SLA for read requests                           | At least 99.9% (99% for cool access tier)                    | At least 99.9% (99% for cool access tier)                    | At least 99.9% (99% for cool access tier) for GRS At least 99.99% (99.9% for cool access tier) for RA-GRS |
 | Availability SLA for write requests                          | At least 99.9% (99% for cool access tier)                    | At least 99.9% (99% for cool access tier)                    | At least 99.9% (99% for cool access tier)                    |
 | Available if a node went down within a data center?          | Yes                                                          | Yes                                                          | Yes                                                          |
-| Available if the entire data center (zonal or non-zonal) went down? |                                                              | Yes                                                          | Yes                                                          |
-| Available on region-wide outage in the primary region?       |                                                              |                                                              | Yes                                                          |
+| Available if the entire data center (zonal or non-zonal) went down? | No                                                           | Yes                                                          | Yes                                                          |
+| Available on region-wide outage in the primary region?       | No                                                           | No                                                           | Yes                                                          |
 | Has read access to the secondary region if the primary region is unavailable? |                                                              |                                                              |                                                              |
 
 
