@@ -33,12 +33,37 @@
 ## Moving Data Into Blob storage
 
 - AzCopy
-- Azure Storage Data Movement library
-- Azure Data Factory
-- Blobfuse is a virtual file system driver for Azure Blob storage. You can use blobfuse to access your existing block blob data in your Storage account through the Linux file system. 
-- Azure Data Box service is available to transfer on-premises data to Blob storage when large datasets or network constraints make uploading data over the wire unrealistic. Microsoft send a physical box for your to copy your data onto
-- The Azure Import/Export service provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide
 
+  - A command-line utility that you can use to copy blobs or files to or from a storage account
+  - List commands: azcopy -h
+  - Show help for a command:  azcopy list -h
+  - Storage explorer uses AzCopy
+  - Can create a container, upload, copy data between storage accounts
+
+- Azure Storage Data Movement library
+
+  - A cross-platform open source  library that is designed for high performance uploading, downloading,  and copying of blobs and files
+
+- Azure Data Factory
+
+  - Azure's cloud ETL service for scale-out serverless data integration and data transformation
+  - Create data-driven workflows (called pipelines) for orchestrating data movement and transforming data at scale
+  -  Ingest data from disparate data stores
+  - Can connect to off premise
+
+- Blobfuse
+
+  - A virtual file system driver for Azure Blob storage
+  - Access your existing block blob data in your Storage account through the Linux file system
+
+- Azure Data Box
+
+  - Transfer on-premises data to Blob storage when large datasets or network constraints make uploading data over the wire unrealistic
+  - Microsoft send a physical box for your to copy your data onto
+
+- Azure Import/Export service
+
+  - Provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide
 
 
 ## Lifecycle Management Policy

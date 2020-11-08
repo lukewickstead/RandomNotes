@@ -14,7 +14,7 @@ Event Grid, Event Hubds, Service Bus, Message Queue, Notifion Hubs have overlapp
 
 
 
-# Event vs. message services
+# Event vs. Message Services
 
 
 

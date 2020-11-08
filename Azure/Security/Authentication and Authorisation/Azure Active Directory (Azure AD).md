@@ -115,4 +115,5 @@
 ## Sources   
 
 - https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis
+- https://docs.microsoft.com/en-us/azure/active-directory/develop
 - https://www.youtube.com/watch?v=AO-uTWSmU_E&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0
