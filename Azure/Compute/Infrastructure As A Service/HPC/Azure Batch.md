@@ -119,6 +119,197 @@
 
 - There is no additional charge for using Batch
 - You only pay for the  underlying resources consumed, such as the virtual machines, storage,  and networking
+- You are charged for pools while the nodes are running, even if no jobs are scheduled
+
+
+
+## Run A Batch API
+
+### Steps
+
+1. Create a resource group
+2. Create a storage account
+3. Create a Batch account
+4. Create a pool of compute nodes
+5. Create a job
+6. Create tasks
+7. View task status
+8. View task output
+9. Clean up resources
+
+
+
+### CLI
+
+```bash
+# 1. Create a resource group
+az group create \
+    --name QuickstartBatch-rg \
+    --location eastus2
+
+# 2. Create a storage account
+az storage account create \
+    --resource-group QuickstartBatch-rg \
+    --name mystorageaccount \
+    --location eastus2 \
+    --sku Standard_LRS
+
+# 3. Create a Batch account
+az batch account create \
+    --name mybatchaccount \
+    --storage-account mystorageaccount \
+    --resource-group QuickstartBatch-rg \
+    --location eastus2
+    
+az batch account login \
+    --name mybatchaccount \
+    --resource-group QuickstartBatch-rg \
+    --shared-key-auth
+
+# 4. Create a pool of compute nodes
+az batch pool create \
+    --id mypool --vm-size Standard_A1_v2 \
+    --target-dedicated-nodes 2 \
+    --image canonical:ubuntuserver:16.04-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 16.04"
+
+az batch pool show --pool-id mypool \
+    --query "allocationState"
+
+# 5. Create a job
+az batch job create \
+    --id myjob \
+    --pool-id mypool
+
+# 6. Create tasks (4 parallel)
+for i in {1..4}
+do
+   az batch task create \
+    --task-id mytask$i \
+    --job-id myjob \
+    --command-line "/bin/bash -c 'printenv | grep AZ_BATCH; sleep 90s'"
+done
+
+# 7. View task status
+az batch task show \
+    --job-id myjob \
+    --task-id mytask1
+
+# 8. View\Download task output 
+az batch task file list \
+    --job-id myjob \
+    --task-id mytask1 \
+    --output table
+    
+az batch task file download \
+    --job-id myjob \
+    --task-id mytask1 \
+    --file-path stdout.txt \
+    --destination ./stdout.txt
+
+# 9. Clean up resources
+az batch pool delete --pool-id mypool
+az group delete --name QuickstartBatch-rg
+
+```
+
+
+
+### Portal
+
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Batch Service**.
+2. https://docs.microsoft.com/en-us/azure/batch/quick-create-portal
+
+
+
+### ARM Template
+
+
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "batchAccountName": {
+      "type": "string",
+      "defaultValue": "[concat(toLower(uniqueString(resourceGroup().id)), 'batch')]",
+      "metadata": {
+        "description": "Batch Account Name"
+      }
+    },
+    "storageAccountsku": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+  },
+  "resources": [
+    {
+      "comments": "This storage account is used to associate to a batch account",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[variables('storageAccountname')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageAccountsku')]"
+      },
+      "kind": "StorageV2",
+      "tags": {
+        "ObjectName": "[variables('storageAccountName')]"
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Batch/batchAccounts",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('batchAccountName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "tags": {
+        "ObjectName": "[parameters('batchAccountName')]"
+      },
+      "properties": {
+        "autoStorage": {
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    },
+    "batchAccountName": {
+      "type": "string",
+      "value": "[parameters('batchAccountName')]"
+    }
+  }
+}
+```
+
+
 
 
 
