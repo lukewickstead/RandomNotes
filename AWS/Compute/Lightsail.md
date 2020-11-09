@@ -1,5 +1,9 @@
 # Amazon Lightsail
 
+[toc]
+
+## Overview
+
 Amazon Lightsail is essentially a virtual private server, A VPS, backed by AWS infrastructure, much like an EC2 instance but without as many configurable steps throughout its creation.
 
 - It has been designed to simple, quick, and very easy to use at a low cost point for small-scale use cases by small business or for single users
@@ -8,11 +12,13 @@ Amazon Lightsail is essentially a virtual private server, A VPS, backed by AWS i
   - It's even possible if required to connect it to other AWS resources and to your existing VPC, running within AWS via a peering connection
 
 
+
 ## Deploying A Lightsail Instance
 
-- A Lightsail instance can be deployed from a single page with ust a few simple configuration options
+- A Lightsail instance can be deployed from a single page with just a few simple configuration options
 - Amazon Lightsail can be accessed either via the AWS console under the compute category, or directly to the homepage of AWS Lightsail, which sits outside of the Management Console
   - https://lightsail.aws.amazon.com/ls/webapp/home/resources
+
 
 
 ## Creation
@@ -33,6 +39,7 @@ Amazon Lightsail is essentially a virtual private server, A VPS, backed by AWS i
   - Add key-value tags to help organize your resources
 
 
+
 ## Management
 
 - Connect allows you to connect to your newly created instance using SSH either via inline SSH software provided by Lightsail or with your own SSH software using the key pair provided. The instance has given a public IP to allow you to connect
@@ -46,3 +53,12 @@ Amazon Lightsail is essentially a virtual private server, A VPS, backed by AWS i
 - Delete allows you to delete your instance along with any data that was stored in it
 
 Amazon Lightsail provides a lightweight solution for small projects and use cases which can be deployed quickly and cost effectively in just a few clicks
+
+
+
+## Sources
+
+- https://docs.aws.amazon.com/lightsail/?id=docs_gateway
+- https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-frequently-asked-questions-faq
+- https://tutorialsdojo.com/amazon-lightsail
+- https://lightsail.aws.amazon.com/ls/webapp/home/resources
