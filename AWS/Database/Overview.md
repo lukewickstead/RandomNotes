@@ -1,24 +1,32 @@
 # Overview of Cloud Databases
 
-- https://aws.amazon.com/rds/
-  
-## How Does a Cloud Data Base Differ From On Site?
 
+
+[toc]
+
+
+
+## Overview
+
+- Fully managed service offering my different types of databases
 - No set up fee
 - No hardware required
 - Pay only for what we use
 
 
-## RDS - Availability And Durability
 
+## Availability And Durability
+
+- Database snapshots 
 - Automatic backups
-- Database snapshots
-- Multi-AZ deployments
-- Automatics Host Replacement
+- Multi-AZ deployments allowing replication, durability and improved performance
+- Automatics host replacement during failover
 - Scales up or down to meet demand
 - Can scale vertically or horizontally without needing to provision more server hardware
 - We can easily enable Multi - availability zone support easily without up front investment
 - There is no need to buy additional compute resource up front
+
+
 
 ## AWS Regions
 
@@ -26,13 +34,6 @@
 - You only see the resources tied to the region you have specified
 - Billing is not tied to a specific region 
 
-
-## AWS Availability Zones
-
-- Each region includes distinct facilities located in different areas within the region called AVAILABILITY ZONES (AZs)
-- AZ's are distinct geographical locations that are engineered to be insulated from failures in any other AZs
-- Located on separate electrical grids, flood plains, risk profiles
-- By having Amazon instances in more than one AZ a database can be protected from failure at a single location
 
 
 ## AWS Shared Responsibility Model
@@ -46,45 +47,38 @@
   - Data at rest, i.e. information that's stored within a database, can be encrypted using a number of services that AWS provides
   - AWS also provides a family of services for encrypting data at rest in the majority of cloud databases
 
+
+
 ## AWS Compliance
+
   - AWS has achieved a high number of compliance certifications and certificates which make it easy for you to meet security requirements, which means that your data is likely to be more secure hosted in a cloud-based database than it could be in a database that's managed in your server room
+
 
 
 ## Overview Of The Database Service
 
-- Amazon RDS provides a managed service which takes care of provisioning of hardware, networking and database software. 
-- Manages the patching of the database software and the compute platform
+- Managed service which takes care of provisioning of hardware, networking and database software. 
+- Manages the patching of the database software and the compute platform as well as backups
 - Hosted in multiple regions
-- Backs Up
-
 - Relational Databases
   - Amazon RDS
     - Aurora
-      - Forks provides significantly faster processing and availability as it has its own cloud native database engine
-      - MySQL
-      - PostgreSQL
-    - Commercial
-      - Oracle 
-      - SQL Server
-    - Community
-      - MySQL
-      - PostgreSQL
-      - MariaDB
-  - Amazon Redshift
-    - Data Warehouse
+      - Forks of MySQL and PostgreSQL provides significantly faster processing and availability as it has its own cloud native database engine
+    - Commercial; Oracle, SQL Server
+    - Community; MySQL, PostgreSQL, MariaDB
+  - Data Warehouse
+    - Amazon Redshift
 - Non-Relational Databases
   - Amazon Dynamo DB
-    - Key Value
-    - document
+    - Key Value and document
   - Amazon ElastiCache
-    - In-Memory Data Store
-    - redis
-    - Memcached
+    - In-Memory Data Store supporting both redis and Memcached
   - Amazon Neptune
-    - Graph
+    - Graph DB
 
 
-## Amazon Non Relational Databases
+
+## Non Relational Databases
 
 - No table schema required
 - Can support non structured data
@@ -92,10 +86,12 @@
 - Generally lack a processing engine so are lighter in design
 
 
+
 ## Relational vs. Non Relational
 
 - With a relational database, we have a persistent connection to the database and then we use the Structured Query Language to work with the data within it
 - With a non-relational database, we generally use a RESTful HTTP interface. So before your application can access a database, it must be authenticated to ensure that the application is allowed to use that database and that it needs to be authorized so that the application can only perform actions for which it has those permissions
+
 
 
 ## Differences / Use Cases
@@ -115,3 +111,9 @@
   - Every table must have a primary key
   - Scales fast
   - Lighter in design
+
+
+
+## Source 
+
+- https://docs.aws.amazon.com/index.html

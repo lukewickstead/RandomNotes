@@ -1,13 +1,109 @@
-# AWS Relational Databases
+# AWS Relational Databases Service (RDS)
 
-## AWS Relational Databases In Depth
 
-- The ability to Scale Components
-- Automatic Backups and Patching
+
+[toc]
+
+## Overview
+
+- Relational database service
+- Allows simple means to provision, create and scale databases
+- Fully Managed
+  - Automatic backups and patching
 - High Availability
 - Automatic Failure Detection and Recovery
+- A number of RDS servers are available
+  - MySQL, MaraDB, PostgreSQL, Amazon Aurora, Oracle, SQL Server
 
-## Amazon RDS for MySQL
+
+
+## DB Instance Type
+
+- Offers different performance and architectures based upon your requirement
+  - Standard/Generalpurpose classes (T3), Memmory Optimized (R5, X1, Z1), Burstable and also previous generations
+- Not all instance types are available for all database engines
+  - https://aws.amazon.com/ec2/instance-types
+
+
+
+<img src="resources\RDSInstanceTypes.png" alt="RDSInstanceTypes" style="zoom:50%;" />
+
+
+
+<img src="resources\RDSInstanceTypesSpecs.png" alt="RDSInstanceTypesSpecs" style="zoom:50%;" />
+
+
+
+## AWS Availability Zones
+
+- Each region includes distinct facilities located in different areas within the region called AVAILABILITY ZONES (AZs)
+- AZ's are distinct geographical locations that are engineered to be insulated from failures in any other AZs
+- Located on separate electrical grids, flood plains, risk profiles
+- By having Amazon instances in more than one AZ a database can be protected from failure at a single location
+
+
+
+## Auto Scaling
+
+### Storage Auto Scaling
+
+- EBS allows enabling storage auto scaling
+- When enabled allows the storage to expand passed the defined allocated storage  up to the maximum storage threshold automatically
+- Charges  are as normal for storage space
+- Maximum storage threshold can be between 101Gib and 65536 GiB
+- Amazon Aurora does no use EBS but uses shared cluster storage, it is a managed service and automatically scales as required
+
+
+
+### Compute Scaling
+
+- Vertical increases the performance of an instance
+  - Change storage type
+- Horizontal
+  - Read replicas can be used to reduce reads on a primary RDS instance
+  - Create via snapshots
+  - An asynchronous link is made between the primary RDS instance and the read replica
+  - Traffic for reads are diverted to the read replica
+
+
+
+## Back Up
+
+- All new dbs have automatica backups turned on though this can be turned off
+- A retention period between 0 and 35 can be selected, the default is 7
+- Encryption cab be enabled using KMS
+- Manual backups can be created and are called snapshots
+- Snapshots are not subject retention period and persist even if the database is deleted
+- Restore can be done to a point in time but requires restoring to a new RDS instance / cluster
+- Aurora allows backtrack which allows a rewind to a point in time without having to create a new RDS insgtance / cluster
+  - You can only go back in time up to the configured backtrack window which has a maximum value of 72 
+
+
+
+## DB Parameter Groups and Option Groups
+
+- DB parameter groupss act as a container for engine configuration values that are applied to one or more DB instances
+- Changing a dynamic parmeter the change is applied immediately refardless of the Apply Immediately setting
+- Changing a static parameter takes effect afer you manually reboot the DB instance
+
+
+
+## Option Groups
+
+- An option group specifies a group of db options or features which will be turned on for a db instance
+- Ease creation and maintenance of RDS instances
+- There are two types; permanant and persistent
+- RDS instances and DB snapshots can be associated with an option group
+
+
+
+## Automatic Updates
+
+- You can select to install minior version updates automatically and during a time range of your chosing
+
+
+
+## MySQL
 
 - Version Support
   - Amazon RDS for MySQL currently supports MySQL Community Editions versions 5.5, 5.6, 5.7
@@ -21,7 +117,8 @@
   - Provisioned IOPS will deliver consistent performance of up to 40,000 IOPS per second
 
 
-## Amazon RDS for Microsoft SQL Server
+
+## Microsoft SQL Server
 
 - Version Support
   - RDS enabled you to run multiple editions of SQL Server (2008 R2, 20012, 2014, 2016 and 2017) including Express, Web, Standard and Enterprise
@@ -34,7 +131,8 @@
   - Provisioned IOPS SSD - With storage from 100GBV to 16TB. You can provision from 1,000 IOPS to 32,000 IOPS for new SQL Server DB Instances
 
 
-## Amazon RDS for Oracle Database
+
+## Oracle
 
 - Version Support
   - BYOL: Standard Edition Two (SE2), Standard Edition One (SE1), Standard Edition (SE) and Enterprise Edition (EE)
@@ -45,7 +143,9 @@
   - Amazon Redshift as a data-source for Oracle Business Intelligence (OBIEE) versions 12.2.1.0 and 12.2.1.1
   
 
-  ## Amazon RDS for MariaDB
+
+
+## MariaDB
 
   - Version Support
     - Amazon RDS for MariaDB supports version 10.1 to 10.2.11
@@ -59,7 +159,8 @@
     - You can create read replicas for MariaDB
 
 
-## Amazon RDS for PostGresSQL
+
+## PostGresSQL
 
 - Provides
   - Multi-AZ support
@@ -78,7 +179,8 @@
   - Provisioned IOPS (SSD) - up to 16 TB storage and 40,000 IOPS per database instance
 
 
-## Amazon RDS for Amazon Aurora
+
+## Aurora
 
 - The cloud native database from Amazon
 - Amazon's own fork of MySQL which provides significantly faster processing availability as a native MySQL and Postgres compatible relational database service
@@ -92,3 +194,10 @@
 - This makes the response and recovery time for Amazon Aurora significantly faster and durable on most RDS services
 - And the multiple Aurora replicas distribute the read workload
 - And by locating Aurora replicas in separate availability zones, you can increase your database availability while increasing read replica performance
+
+
+
+## Sources 
+
+- https://docs.aws.amazon.com/rds
+- https://docs.aws.amazon.com/rds/?id=docs_gateway
